@@ -1,0 +1,28 @@
+{
+    "textures": [
+        {
+            "id": "img_head",
+            "path": "graphics\\head.png"
+        },
+        {
+            "id": "img_btn_level_idle",
+            "path": "graphics\\level_idle.png"
+        },
+        {
+            "id": "img_btn_level_hovered",
+            "path": "graphics\\level_hovered.png"
+        },
+        {
+            "id": "img_btn_level_pushed",
+            "path": "graphics\\level_pushed.png"
+        }
+    ],
+    "altas": [],
+    "fonts": [
+        {
+            "id": "font_lyusung_32px",
+            "path": "fonts\\Lyusung-210618.ttf",
+            "size": 24.0
+        }
+    ]
+}

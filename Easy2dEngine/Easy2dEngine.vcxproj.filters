@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="头文件\component">
+      <UniqueIdentifier>{218e993d-2d2d-4235-8139-136b2f1044c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\component\animation">
+      <UniqueIdentifier>{9ee54aba-90d7-478d-9cbe-f280e371eacf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\component\interaction">
+      <UniqueIdentifier>{81237abc-4d5f-4fdb-af00-a8054af6f8d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\component\camera">
+      <UniqueIdentifier>{0ccdc01c-601d-4467-9793-32cc9db3b485}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\component\scene">
+      <UniqueIdentifier>{314b3f59-6162-4f65-a803-e1818d6dcd3d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\component\text">
+      <UniqueIdentifier>{04c3531d-e9e6-485f-88a5-602ddc5c1e92}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\component\timer">
+      <UniqueIdentifier>{347b9d69-4361-4dfc-bc03-8d803dd6d760}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\component\utils">
+      <UniqueIdentifier>{545236ba-75e1-4004-8a10-e690601a4884}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\component\resources">
+      <UniqueIdentifier>{42f01141-0310-424b-b4d1-c1acfbfaea36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\component\error">
+      <UniqueIdentifier>{69c57671-fcd6-4dd4-903d-f394d211ffaa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="animation.h">
+      <Filter>头文件\component\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="atlas.h">
+      <Filter>头文件\component\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>头文件\component\interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>头文件\component\camera</Filter>
+    </ClInclude>
+    <ClInclude Include="resources_manager.h">
+      <Filter>头文件\component\resources</Filter>
+    </ClInclude>
+    <ClInclude Include="scene.h">
+      <Filter>头文件\component\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="scene_manager.h">
+      <Filter>头文件\component\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="slider.h">
+      <Filter>头文件\component\interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="text_button.h">
+      <Filter>头文件\component\interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="textbox.h">
+      <Filter>头文件\component\text</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>头文件\component\timer</Filter>
+    </ClInclude>
+    <ClInclude Include="vec2f.h">
+      <Filter>头文件\component\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="test_scene.h">
+      <Filter>头文件\component\scene</Filter>
+    </ClInclude>
+    <ClInclude Include="IO_exception.h">
+      <Filter>头文件\component\error</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="resources_manager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="scene_manager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
