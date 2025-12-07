@@ -11,7 +11,8 @@ class SceneManager
 public:
 	static SceneManager* instance();
 
-	void LoadAllScenes(SDL_Renderer* renderer);
+	void LoadAll(SDL_Renderer* renderer);
+	void RemoveAll();
 	void OnEvent(SDL_Event* event);
 	void OnUpdate(float ticks);
 	void OnRender();

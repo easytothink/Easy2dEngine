@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ExternalIncludePath>..\third-party\nlohmann-json-3.12.0\include\include;..\third-party\SDL3-3.2.10\include;..\third-party\SDL3_image-3.2.4\include;..\third-party\SDL3_ttf-3.2.2\include;$(ExternalIncludePath)</ExternalIncludePath>
-    <LibraryPath>..\third-party\SDL3-3.2.10\lib\x64;..\third-party\SDL3_image-3.2.4\lib\x64;..\third-party\SDL3_ttf-3.2.2\lib\x64;$(LibraryPath)</LibraryPath>
+    <ExternalIncludePath>..\third-party\SDL3-3.2.10\include;..\third-party\SDL3_image-3.2.4\include;..\third-party\SDL3_ttf-3.2.2\include;..\third-party\nlohmann-json-3.12.0\include\include;..\third-party\cryptopp890\include;$(ExternalIncludePath)</ExternalIncludePath>
+    <LibraryPath>..\third-party\SDL3-3.2.10\lib\x64;..\third-party\SDL3_image-3.2.4\lib\x64;..\third-party\SDL3_ttf-3.2.2\lib\x64;..\third-party\cryptopp890\lib\x64\Debug;..\third-party\cryptopp890\lib\x64\Release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -108,11 +108,12 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL3.lib;SDL3_test.lib;SDL3_image.lib;SDL3_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL3.lib;SDL3_test.lib;SDL3_image.lib;SDL3_ttf.lib;cryptlib.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -142,6 +143,7 @@
     <ClInclude Include="scene_manager.h" />
     <ClInclude Include="slider.h" />
     <ClInclude Include="test_scene.h" />
+    <ClInclude Include="text.h" />
     <ClInclude Include="textbox.h" />
     <ClInclude Include="text_button.h" />
     <ClInclude Include="timer.h" />

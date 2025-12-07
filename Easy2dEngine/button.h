@@ -5,6 +5,8 @@
 #include <functional>
 #include "SDL3/SDL.h"
 #include "resources_manager.h"
+#include "vec2f.h"
+#include "camera.h"
 
 class Button
 {
@@ -79,13 +81,13 @@ public:
 		switch (status)
 		{
 		case Button::Status::Idle:
-			camera->OnRenderTexture(img_idle, &rect);
+			camera->RenderTexture(img_idle, &rect);
 			break;
 		case Button::Status::Hovered:
-			camera->OnRenderTexture(img_hovered, &rect);
+			camera->RenderTexture(img_hovered, &rect);
 			break;
 		case Button::Status::Pushed:
-			camera->OnRenderTexture(img_pushed, &rect);
+			camera->RenderTexture(img_pushed, &rect);
 			break;
 		}
 	}

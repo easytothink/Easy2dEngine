@@ -48,7 +48,7 @@ int main(int argc, char* argv[]) {
     try {
         //ResourcesManager::instance()->Load(renderer);//内置
         ResourcesManager::instance()->Load(renderer,"test\\assets");//本地存储
-        SceneManager::instance()->LoadAllScenes(renderer);
+        SceneManager::instance()->LoadAll(renderer);
     }
     catch (IOException& e) {
         SDL_Log(u8"无法加载资源文件：%s", e.what());
@@ -61,7 +61,7 @@ int main(int argc, char* argv[]) {
     //时间控制初始化
     using namespace std::chrono;
 
-    const nanoseconds frame_duration(1000000000 / 60);
+    const nanoseconds frame_duration(1000000000 / 144);
     steady_clock::time_point last_tick = steady_clock::now();
 
     //主循环
@@ -92,6 +92,8 @@ int main(int argc, char* argv[]) {
             std::this_thread::sleep_for(sleep_duration);
     }
 
+    ResourcesManager::instance()->RemoveAll();
+    SceneManager::instance()->RemoveAll();
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
     TTF_Quit();

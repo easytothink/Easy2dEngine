@@ -17,7 +17,6 @@ struct FontResInfo
 {
 	std::string id;
 	char path[64];
-	float size;
 };
 
 //资源文件 名字-路径对
@@ -66,7 +65,7 @@ void ResourcesManager::Load(SDL_Renderer* renderer) {
 	}
 	for (const auto& info : font_info_list) {
 		TTF_Font* font = nullptr;
-		font = TTF_OpenFont(info.path, info.size);
+		font = TTF_OpenFont(info.path, 1.0f);
 		if (!font)
 			throw info.path;
 		font_pool[info.id] = font;
@@ -121,6 +120,56 @@ void ResourcesManager::Load(SDL_Renderer* renderer, const char* root) {
 	}
 }
 
+void ResourcesManager::RemoveAll()
+{
+	for (auto& font : dynamic_font_pool)
+	{
+		TTF_CloseFont(font.second);
+	}
+	dynamic_font_pool.clear();
+
+	for (auto& texture : texture_pool)
+	{
+		SDL_DestroyTexture(texture.second);
+	}
+	texture_pool.clear();
+	for (auto& altas : atlas_pool)
+	{
+		delete altas.second;
+	}
+	atlas_pool.clear();
+	for (auto& font : font_pool)
+	{
+		TTF_CloseFont(font.second);
+	}
+	font_pool.clear();
+}
+
+TTF_Font* ResourcesManager::RequestDynamicFont(TTF_Font* base, 
+	const std::vector<std::function<void(TTF_Font*)>>& on_handle_all)
+{
+	TTF_Font* new_font = TTF_CopyFont(base);
+	for(auto& on_handle : on_handle_all)
+		on_handle(new_font);
+
+	CryptoPP::MD5 hash;
+	CryptoPP::byte digest[CryptoPP::MD5::DIGESTSIZE];
+	hash.CalculateDigest(digest, (CryptoPP::byte*)new_font, sizeof(new_font));
+	std::string res;
+	CryptoPP::HexEncoder encoder;
+	encoder.Attach(new CryptoPP::StringSink(res));
+	encoder.Put(digest, sizeof(digest));
+	encoder.MessageEnd();
+
+	dynamic_font_pool[res] = new_font;
+	return new_font;
+}
+
+void ResourcesManager::RemoveDynamicFont(const std::string& id)
+{
+	dynamic_font_pool.erase(id);
+}
+
 Atlas* ResourcesManager::FindAtlas(const std::string& id) const
 {
 	const auto& iter = atlas_pool.find(id);
@@ -141,9 +190,16 @@ SDL_Texture* ResourcesManager::FindTexture(const std::string& id) const
 
 TTF_Font* ResourcesManager::FindFont(const std::string& id) const
 {
-	const auto& iter = font_pool.find(id);
-	if (iter == font_pool.end())
-		return nullptr;
+	const auto& iter1 = dynamic_font_pool.find(id);
+	if (iter1 == dynamic_font_pool.end()) {
+		const auto& iter2 = font_pool.find(id);
+		if (iter2 == font_pool.end())
+			return nullptr;
+		else
+			return iter2->second;
+	}
+	else
+		return iter1->second;
 
-	return iter->second;
+	return nullptr;
 }

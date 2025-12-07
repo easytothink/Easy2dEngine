@@ -15,6 +15,10 @@
         {
             "id": "img_btn_level_pushed",
             "path": "graphics\\level_pushed.png"
+        },
+        {
+            "id": "img_test_animaiton",
+            "path": "graphics\\animation.png"
         }
     ],
     "altas": [],

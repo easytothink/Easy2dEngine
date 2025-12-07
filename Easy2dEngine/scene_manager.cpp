@@ -13,12 +13,20 @@ SceneManager* SceneManager::instance()
 SceneManager::SceneManager() = default;
 SceneManager::~SceneManager() = default;
 
-void SceneManager::LoadAllScenes(SDL_Renderer* renderer)
+void SceneManager::LoadAll(SDL_Renderer* renderer)
 {
     scene_pool["test_scene"] = new TestScene(renderer);
 
     current_scene = scene_pool.find("test_scene")->second;
     current_scene->OnEnter();
+}
+
+void SceneManager::RemoveAll()
+{
+    for (auto& scene : scene_pool) {
+        delete scene.second;
+    }
+    scene_pool.clear();
 }
 
 void SceneManager::OnEvent(SDL_Event* event)

@@ -87,6 +87,9 @@
     <ClInclude Include="IO_exception.h">
       <Filter>头文件\component\error</Filter>
     </ClInclude>
+    <ClInclude Include="text.h">
+      <Filter>头文件\component\text</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">

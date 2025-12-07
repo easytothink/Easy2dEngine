@@ -25,8 +25,8 @@ public:
 
 	}
 
-	void OnRenderTexture(SDL_Texture* texture, const SDL_FRect* src_rect,
-		const SDL_FRect* dst_rect, double angle, const SDL_FPoint* center) {
+	void RenderTexture(SDL_Texture* texture, const SDL_FRect* src_rect,
+			const SDL_FRect* dst_rect, double angle, const SDL_FPoint* center) {
 		SDL_FRect dst_rect_win = *dst_rect;
 		dst_rect_win.x -= position.x;
 		dst_rect_win.y -= position.y;
@@ -36,12 +36,26 @@ public:
 			&dst_rect_win, angle, center, SDL_FlipMode::SDL_FLIP_NONE);
 	}
 
-	void OnRenderTexture(SDL_Texture* texture, const SDL_FRect* rect){
-		OnRenderTexture(texture, NULL, rect, 0, NULL);
+	void RenderTexture(SDL_Texture* texture, const SDL_FRect* src_rect, const SDL_FRect* dst_rect)
+	{
+		RenderTexture(texture, src_rect, dst_rect, 0, { 0 });
+	}
+
+	void RenderTexture(SDL_Texture* texture, const SDL_FRect* dst_rect){
+		RenderTexture(texture, NULL, dst_rect);
 	}
 
 	void SetRenderTarget(SDL_Texture* texture) {
 		SDL_SetRenderTarget(renderer, texture);
+	}
+
+	SDL_Texture* CreateTextureFromSurface(SDL_Surface* surface) {
+		return SDL_CreateTextureFromSurface(renderer, surface);
+	}
+
+	SDL_Texture* CreateTexture(SDL_PixelFormat format, SDL_TextureAccess access, 
+			int w, int h) {
+		return SDL_CreateTexture(renderer, format, access, w, h);
 	}
 
 	void SetColor(Uint8 r, Uint8 g, Uint8 b,Uint8 a) {
