@@ -85,6 +85,13 @@ public:
 		text[index].fg = fg;
 	}
 
+	void SetColor(std::unordered_map<int, SDL_Color> pairs) {
+		for (auto& pair : pairs)
+		{
+			text[pair.first].fg = pair.second;
+		}
+	}
+
 	void Text2Surface(std::vector<SDL_Surface*>& output) {
 		for (auto& chr : text)
 		{

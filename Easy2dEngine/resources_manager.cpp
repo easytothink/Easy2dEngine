@@ -152,9 +152,15 @@ TTF_Font* ResourcesManager::RequestDynamicFont(TTF_Font* base,
 	for(auto& on_handle : on_handle_all)
 		on_handle(new_font);
 
+	float size = TTF_GetFontSize(new_font);
+	int style = (int)TTF_GetFontStyle(new_font);
+	CryptoPP::byte data[8];
+	std::memcpy(data, &size, sizeof(float));
+	std::memcpy(data + 4, &style, sizeof(int));
+
 	CryptoPP::MD5 hash;
 	CryptoPP::byte digest[CryptoPP::MD5::DIGESTSIZE];
-	hash.CalculateDigest(digest, (CryptoPP::byte*)new_font, sizeof(new_font));
+	hash.CalculateDigest(digest, data, sizeof(new_font));
 	std::string res;
 	CryptoPP::HexEncoder encoder;
 	encoder.Attach(new CryptoPP::StringSink(res));

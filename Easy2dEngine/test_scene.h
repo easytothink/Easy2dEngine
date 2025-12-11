@@ -21,7 +21,12 @@ public:
 		test_textbox.ApplyProperties({ 1,3,5,6 });
 		test_textbox.SetProperties(Text::FontProperty::SYTLE, TTF_STYLE_STRIKETHROUGH);
 		test_textbox.ApplyProperties({ 5,6 });
-		test_textbox.SetColor(1, { 255,255,0,0 });
+		test_textbox.SetColor({
+			{ 3,{127,0,255,0} },
+			{ 4,{255,255,0,0} },
+			{ 6,{255,0,255,0} },
+			{ 7,{0,255,255,0} }
+			});
 		test_textbox.Load(main_camera);
 	};
 	~TestScene() {

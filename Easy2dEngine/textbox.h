@@ -40,6 +40,10 @@ public:
 		text->SetColor(index, fg);
 	}
 
+	void SetColor(std::unordered_map<int, SDL_Color> pairs) {
+		text->SetColor(pairs);
+	}
+
 	void OnEvent(SDL_Event* event) {
 		
 	}
