@@ -8,9 +8,9 @@
 class Slider
 {
 public:
-	Slider(SDL_FRect rect, int* target, int min, int max, int initial) {
+	Slider(SDL_FRect rect, int& target, int min, int max, int initial) 
+		:target(target){
 		this->rect = rect;
-		this->target = target;
 		this->min = min;
 		this->max = max;
 		this->ratio = 1.0f * (initial - min) / (max - min);
@@ -53,7 +53,7 @@ public:
 	}
 
 	void OnUpdate(float ticks) {
-		*target = (int)(ratio * (max - min) + min);
+		target = (int)(ratio * (max - min) + min);
 	}
 
 	void OnRender(Camera* camera) {
@@ -63,7 +63,7 @@ public:
 private:
 	SDL_FRect rect;
 	bool selected = false;
-	int* target;
+	int& target;
 	int min, max;
 	float ratio;
 	std::function<float(SDL_Event*)> calc_delta_ratio;

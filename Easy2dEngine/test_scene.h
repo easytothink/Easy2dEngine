@@ -5,7 +5,7 @@
 #include "resources_manager.h"
 #include "animation.h"
 #include "button.h"
-#include "textbox.h"
+#include "text.h"
 
 class TestScene : public Scene
 {
@@ -13,16 +13,21 @@ public:
 	TestScene(SDL_Renderer* renderer) {
 		main_camera = new Camera(renderer);
 
-		test_textbox.SetProperties(Text::FontProperty::SIZE, 72.0f);
-		test_textbox.SetProperties(Text::FontProperty::SYTLE, TTF_STYLE_ITALIC);
-		test_textbox.ApplyProperties(0);
-		test_textbox.SetProperties(Text::FontProperty::SIZE, 36.0f);
-		test_textbox.SetProperties(Text::FontProperty::SYTLE, TTF_STYLE_UNDERLINE);
-		test_textbox.ApplyProperties({ 1,3,5,6 });
-		test_textbox.SetProperties(Text::FontProperty::SYTLE, TTF_STYLE_STRIKETHROUGH);
-		test_textbox.ApplyProperties({ 5,6 });
-		test_textbox.SetColor(1, { 255,255,0,0 });
-		test_textbox.Load(main_camera);
+		test_text.SetProperties(Text::FontProperty::SIZE, 72.0f);
+		test_text.SetProperties(Text::FontProperty::STYLE, TTF_STYLE_ITALIC);
+		test_text.ApplyProperties(0);
+		test_text.SetProperties(Text::FontProperty::SIZE, 36.0f);
+		test_text.SetProperties(Text::FontProperty::STYLE, TTF_STYLE_UNDERLINE);
+		test_text.ApplyProperties({ 1,3,5,6 });
+		test_text.SetProperties(Text::FontProperty::STYLE, TTF_STYLE_STRIKETHROUGH);
+		test_text.ApplyProperties({ 5,6 });
+		test_text.SetColor({
+			{ 3,{127,0,255,0} },
+			{ 4,{255,255,0,0} },
+			{ 6,{255,0,255,0} },
+			{ 7,{0,255,255,0} }
+			});
+		test_text.Load(main_camera);
 	};
 	~TestScene() {
 		delete main_camera;
@@ -55,7 +60,7 @@ public:
 	void OnUpdate(float ticks) {
 		test_animation.OnUpdate(ticks);
 		test_button.OnUpdate(ticks);
-		test_textbox.OnUpdate(ticks);
+		test_text.OnUpdate(ticks);
 	}
 
 	void OnRender()
@@ -65,7 +70,7 @@ public:
 
 		test_animation.OnRender(main_camera);
 		test_button.OnRender(main_camera);
-		test_textbox.OnRender(main_camera);
+		test_text.OnRender(main_camera);
 	}
 
 private:
@@ -77,7 +82,7 @@ private:
 		"img_btn_level_hovered",
 		"img_btn_level_pushed" 
 	};
-	TextBox test_textbox = {
+	Text test_text = {
 		{500,100,0,0},
 		u8"测试-我的世界ABCabc123%&*&@",
 		"font_lyusung_32px"
