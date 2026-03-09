@@ -121,9 +121,7 @@ public:
 	void SetColor(std::unordered_map<int, SDL_Color> pairs) {
 		for (auto& pair : pairs)
 		{
-			if (pair.first >= 0 && pair.first < GetLength()) {
-				text[pair.first].fg = pair.second;
-			}
+			text[pair.first].fg = pair.second;
 		}
 	}
 
