@@ -137,6 +137,8 @@
     <ClInclude Include="atlas.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="camera.h" />
+    <ClInclude Include="hit_box.h" />
+    <ClInclude Include="hit_box_manager.h" />
     <ClInclude Include="IO_exception.h" />
     <ClInclude Include="resources_manager.h" />
     <ClInclude Include="scene.h" />
@@ -144,12 +146,12 @@
     <ClInclude Include="slider.h" />
     <ClInclude Include="test_scene.h" />
     <ClInclude Include="text.h" />
-    <ClInclude Include="textbox.h" />
     <ClInclude Include="text_button.h" />
     <ClInclude Include="timer.h" />
     <ClInclude Include="vec2f.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="hit_box_manager.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="resources_manager.cpp" />
     <ClCompile Include="scene_manager.cpp" />

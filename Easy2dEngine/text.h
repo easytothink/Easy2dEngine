@@ -1,12 +1,11 @@
 #ifndef _TEXT_H_
 #define _TEXT_H_
 
-#include <string>
-#include <vector>
 #include <cstring>
-#include <algorithm>
 #include <functional>
+#include <string>
 #include <unordered_map>
+#include <vector>
 
 class Text
 {
@@ -192,7 +191,7 @@ public:
 	}
 
 	void OnEvent(SDL_Event* event) {
-
+		
 	}
 
 	void OnUpdate(float ticks) {

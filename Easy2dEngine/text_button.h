@@ -2,7 +2,7 @@
 #define _TEXT_BUTTON_H_
 
 #include "button.h"
-#include "textbox.h"
+#include "text.h"
 
 class TextButton : public Button
 {
@@ -11,7 +11,7 @@ public:
 	~TextButton() = default;
 
 private:
-	TextBox* textbox = nullptr;
+	Text* text = nullptr;
 };
 
 #endif // !_TEXT_BUTTON_H_

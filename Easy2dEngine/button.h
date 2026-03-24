@@ -5,6 +5,7 @@
 #include <functional>
 #include "SDL3/SDL.h"
 #include "resources_manager.h"
+//#include "hit_box_manager.h"
 #include "vec2f.h"
 #include "camera.h"
 
@@ -31,11 +32,13 @@ public:
 		img_hovered = ResourcesManager::instance()->FindTexture(hovered);
 		img_pushed = ResourcesManager::instance()->FindTexture(pushed);
 	};
-	~Button() = default;
+	~Button() {
+		//HitBoxManager::instance()->DestroyHitBox(hit_box);
+	};
 
 private:
 	bool CheckHit(float x, float y) const {
-		return x>rect.x && x<rect.x+rect.w && y>rect.y && y<rect.y+rect.h;
+		return x > rect.x && x<rect.x + rect.w && y>rect.y && y < rect.y + rect.h;
 	}
 
 public:

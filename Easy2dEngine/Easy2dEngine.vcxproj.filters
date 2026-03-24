@@ -72,9 +72,6 @@
     <ClInclude Include="text_button.h">
       <Filter>头文件\component\interaction</Filter>
     </ClInclude>
-    <ClInclude Include="textbox.h">
-      <Filter>头文件\component\text</Filter>
-    </ClInclude>
     <ClInclude Include="timer.h">
       <Filter>头文件\component\timer</Filter>
     </ClInclude>
@@ -90,6 +87,12 @@
     <ClInclude Include="text.h">
       <Filter>头文件\component\text</Filter>
     </ClInclude>
+    <ClInclude Include="hit_box.h">
+      <Filter>头文件\component\interaction</Filter>
+    </ClInclude>
+    <ClInclude Include="hit_box_manager.h">
+      <Filter>头文件\component\interaction</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -99,6 +102,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="scene_manager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="hit_box_manager.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

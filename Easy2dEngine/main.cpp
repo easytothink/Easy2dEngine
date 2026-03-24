@@ -5,6 +5,7 @@
 #include "SDL3/SDL_main.h"
 #include "resources_manager.h"
 #include "scene_manager.h"
+#include "hit_box_manager.h"
 
 bool running = true;
 const char WINDOW_TITLE[] = u8"DEMO";
@@ -57,6 +58,8 @@ int main(int argc, char* argv[]) {
 
     //事件
     SDL_Event event;
+    //鼠标碰撞箱
+    HitBox* mouse_hit_box =  HitBoxManager::instance()->CreateHitBox(0,0,0,0);
 
     //时间控制初始化
     using namespace std::chrono;
@@ -68,6 +71,7 @@ int main(int argc, char* argv[]) {
     while (running) {
         //事件处理
         while (SDL_PollEvent(&event)) {
+			HitBoxManager::instance()->OnEvent(&event, mouse_hit_box);
             SceneManager::instance()->OnEvent(&event);
 
             if(event.type == SDL_EVENT_QUIT)
